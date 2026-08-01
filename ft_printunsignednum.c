@@ -37,7 +37,6 @@ int ft_printunsignednum(unsigned int n)
 {
 	int counter;
 
-	
 	write(1, ft_unsigned_itoa(n), ft_strlen(ft_unsigned_itoa(n)));
 	counter = ft_strlen(ft_unsigned_itoa(n));
 	return counter;

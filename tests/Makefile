@@ -26,7 +26,6 @@ obj/unit_tests/%.o: unit_tests/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I. -I$(LIBFT_DIR) -c $< -o $@
 clean:
-clean:
 	rm -rf obj
 	make -C $(LIBFT_DIR) clean
 
