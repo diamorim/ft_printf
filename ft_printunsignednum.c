@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printunsignednum.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: damorim- <damorim-@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/13 10:28:06 by damorim-          #+#    #+#             */
+/*   Updated: 2026/08/13 15:14:20 by damorim-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	count_digits(unsigned int n)
@@ -18,7 +30,7 @@ static int	count_digits(unsigned int n)
 char	*ft_unsigned_itoa(unsigned int n)
 {
 	char			*str;
-	int	len;
+	int				len;
 
 	len = count_digits(n);
 	str = malloc((len + 1) * sizeof(char));
@@ -33,11 +45,15 @@ char	*ft_unsigned_itoa(unsigned int n)
 	str[len - 1] = '0' + (n % 10);
 	return (str);
 }
-int ft_printunsignednum(unsigned int n)
-{
-	int counter;
 
-	write(1, ft_unsigned_itoa(n), ft_strlen(ft_unsigned_itoa(n)));
-	counter = ft_strlen(ft_unsigned_itoa(n));
-	return counter;
+int	ft_printunsignednum(unsigned int n)
+{
+	int		counter;
+	char	*str;
+
+	str = ft_unsigned_itoa(n);
+	write(1, str, ft_strlen(str));
+	counter = ft_strlen(str);
+	free(str);
+	return (counter);
 }

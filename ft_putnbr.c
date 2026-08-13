@@ -1,17 +1,26 @@
-#include "printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: damorim- <damorim-@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/13 10:29:04 by damorim-          #+#    #+#             */
+/*   Updated: 2026/08/13 10:41:28 by damorim-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 #include "libft/libft.h"
-#include <unistd.h>
 
 int	ft_putnbr(int n)
 {
-	int	num_amm;
+	int		num_amm;
+	char	*val;
 
-	num_amm = ft_strlen(ft_itoa(n));
-	if(!n)
-		return 0;
-	write(1, ft_itoa(n), ft_strlen(ft_itoa(n)));
-
-	return num_amm; 
+	val = ft_itoa(n);
+	num_amm = ft_strlen(val);
+	write(1, val, ft_strlen(val));
+	free(val);
+	return (num_amm);
 }
-
-
